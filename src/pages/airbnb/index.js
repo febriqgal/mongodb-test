@@ -15,7 +15,7 @@ export default function Index() {
     fetcher
   );
 
-  if (error) return <div className={styles.main}>failed to load</div>;
+  if (error) return <div className={styles.main}>failed to loaddasdsdas</div>;
   if (isLoading) return <div className={styles.main}>loading...</div>;
   return (
     <Layout>
