@@ -11,7 +11,7 @@ export default function Home() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR(urlAPI, fetcher);
 
-  if (error) return <div className={styles.main}>failed to load</div>;
+  if (error) return <div className={styles.main}>failed to loadccc</div>;
   if (isLoading) return <div className={styles.main}>loading...</div>;
 
   return (
