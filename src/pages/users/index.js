@@ -1,6 +1,5 @@
 import React from "react";
 import useSWR from "swr";
-import { urlAPI } from "./controller";
 import styles from "../../styles/Home.module.css";
 import Layout from "@/components/layout";
 import { useRouter } from "next/router";
@@ -8,7 +7,10 @@ import Link from "next/link";
 export default function Index() {
   const route = useRouter();
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(urlAPI, fetcher);
+  const { data, error, isLoading } = useSWR(
+    "http://localhost:3000/api/users",
+    fetcher
+  );
 
   if (error) return <div className={styles.main}>failed to load</div>;
   if (isLoading) return <div className={styles.main}>loading...</div>;

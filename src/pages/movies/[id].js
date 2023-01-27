@@ -4,12 +4,15 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Head from "next/head";
 import Styles from "../../styles/Home.module.css";
-import { urlAPI } from "./controller";
+
 export default function Id() {
   const route = useRouter();
   const { id } = route.query;
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(`${urlAPI}/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR(
+    `http://localhost:3000/api/users/${id}`,
+    fetcher
+  );
 
   if (error) return <div className={Styles.main}>failed to load</div>;
   if (isLoading) return <div className={Styles.main}>loading...</div>;
