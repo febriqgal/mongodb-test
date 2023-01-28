@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 export default function Id() {
   const route = useRouter();
   const { id } = route.query;
-  const urlAPI = `http://localhost:3000/api/users/${id}`;
+  const urlAPI = `https://mongodb-test-one.vercel.app/api/users/${id}`;
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { register, handleSubmit } = useForm();
   const submit = async (e) => {
